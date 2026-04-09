@@ -1,0 +1,58 @@
+<div class="test-plan-container">
+  <div class="page-header">
+    <h1 class="page-title">Gestion des Plans de Test</h1>
+    <p class="page-subtitle">Organisez et gérez vos plans de test de manière efficace</p>
+  </div>
+
+  <div class="button-group">
+    <button mat-raised-button class="add-test-plan-btn" (click)="openDialog()">Ajouter un Plan de Test</button>
+    <button mat-raised-button class="import-test-plan-btn" (click)="importTestPlan('test-plan.yaml')">Importer les Plans de Test</button>
+  </div>
+
+  <!-- Dialog for entering test plan name -->
+  <ng-template #dialogTemplate>
+    <h2 mat-dialog-title>Ajouter un Plan de Test</h2>
+    <form [formGroup]="testPlanForm" (ngSubmit)="submit()">
+      <mat-dialog-content>
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Nom du Plan de Test</mat-label>
+          <input matInput formControlName="name">
+          <mat-error *ngIf="testPlanForm.get('name')?.hasError('required')">
+            Le nom est requis
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Catégorie</mat-label>
+          <input matInput formControlName="cartegorie">
+          <mat-error *ngIf="testPlanForm.get('cartegorie')?.hasError('required')">
+            La catégorie est requise
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description" rows="4"></textarea>
+          <mat-error *ngIf="testPlanForm.get('description')?.hasError('required')">
+            La description est requise
+          </mat-error>
+        </mat-form-field>
+      </mat-dialog-content>
+      <mat-dialog-actions>
+        <button mat-button (click)="closeDialog()">Annuler</button>
+        <button mat-button type="submit" color="primary">Ajouter</button>
+      </mat-dialog-actions>
+    </form>
+  </ng-template>
+
+  <div class="test-plans-grid">
+    @for (item of testPlans; track $index) {
+      <app-test-plan-card
+        [testPlanCard]="item"
+        (delete)="deleteTestPlan($index)"
+      ></app-test-plan-card>
+    } @empty {
+      <p class="empty-message">Aucun plan de test disponible. Ajoutez-en un nouveau ou importez des plans existants.</p>
+    }
+  </div>
+</div>
