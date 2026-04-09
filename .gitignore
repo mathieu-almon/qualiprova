@@ -12,6 +12,8 @@
 /package-lock.json
 /yarn.lock
 
+/src-tauri/target
+
 # Environment files
 /.env
 
