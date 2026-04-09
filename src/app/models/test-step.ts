@@ -1,3 +1,4 @@
-export interface TestStep{
-    name: string
+export interface TestStep {
+  name: string;
+  typeRequest: string;
 }

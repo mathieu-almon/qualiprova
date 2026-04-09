@@ -1,37 +1,45 @@
-TestPlanCards:
-  - name: "Test Plan 1"
-    description: "Description for Test Plan 1"
-    testSuites:
-      - name: "Test Suite 1"
-      - name: "Test Suite 2"
-      - name: "Test Suite 3"
-      - name: "Test Suite 4"
-      - name: "Test Suite 5"
-      - name: "Test Suite 6"
-  - name: "Test Plan 2"
-    description: "Description for Test Plan 2"
-    testSuites:
-      - name: "Test Suite 1"
-      - name: "Test Suite 2"
-      - name: "Test Suite 3"
-      - name: "Test Suite 4"
-      - name: "Test Suite 5"
-      - name: "Test Suite 6"
-  - name: "Test Plan 3"
-    description: "Description for Test Plan 3"
-    testSuites:
-      - name: "Test Suite 1"
-      - name: "Test Suite 2"
-      - name: "Test Suite 3"
-      - name: "Test Suite 4"
-      - name: "Test Suite 5"
-      - name: "Test Suite 6"
-    - name: "Test Plan 4"
-    description: "Description for Test Plan 4"
-    testSuites:
-      - name: "Test Suite 1"
-      - name: "Test Suite 2"
-      - name: "Test Suite 3"
-      - name: "Test Suite 4"
-      - name: "Test Suite 5"
-      - name: "Test Suite 6"
+name: 'Test Plan for Application'
+description: 'This is a comprehensive test plan for the application.'
+scenarios:
+  - name: 'User Authentication'
+    description: 'Test cases for user authentication.'
+    testCases:
+      - name: 'Login with valid credentials'
+        description: 'Test login with valid username and password.'
+        testSteps:
+          - name: 'Enter username'
+            typeRequest: 'input'
+          - name: 'Enter password'
+            typeRequest: 'input'
+          - name: 'Click login button'
+            typeRequest: 'click'
+      - name: 'Login with invalid credentials'
+        description: 'Test login with invalid username and password.'
+        testSteps:
+          - name: 'Enter invalid username'
+            typeRequest: 'input'
+          - name: 'Enter invalid password'
+            typeRequest: 'input'
+          - name: 'Click login button'
+            typeRequest: 'click'
+  - name: 'Data Management'
+    description: 'Test cases for data management.'
+    testCases:
+      - name: 'Create new record'
+        description: 'Test creating a new record.'
+        testSteps:
+          - name: 'Navigate to create record page'
+            typeRequest: 'navigation'
+          - name: 'Fill in record details'
+            typeRequest: 'input'
+          - name: 'Save record'
+            typeRequest: 'click'
+      - name: 'Delete record'
+        description: 'Test deleting a record.'
+        testSteps:
+          - name: 'Navigate to record list'
+            typeRequest: 'navigation'
+          - name: 'Select record to delete'
+            typeRequest: 'select'
+          - name: 'Confirm deletion'
+            typeRequest: 'click'

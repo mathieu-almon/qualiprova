@@ -1,0 +1,22 @@
+<mat-card *ngIf="testPlanCard" class="test-plan-card">
+  <mat-card-header class="test-plan-card-header">
+    <mat-card-title>{{ testPlanCard.name }}</mat-card-title>
+    <mat-card-subtitle>{{ testPlanCard.cartegorie }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="test-plan-card-content">
+    <p>
+      {{ testPlanCard.description }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button (click)="emitTestPlanCard()" aria-label="Edition du test test plan">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button (click)="onDelete()" aria-label="Suppression du test plan">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Execution du test plan">
+      <mat-icon>bolt</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

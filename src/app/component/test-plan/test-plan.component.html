@@ -1,0 +1,32 @@
+<mat-card class="side-card">
+  <mat-card-header>
+    <mat-card-title>Test plan</mat-card-title>
+    <div class="header-actions">
+      <button mat-icon-button aria-label="Ajouter">
+        <app-dialog-formulaire-test-plan
+          (testPlanCard)="addTestPlan($event)"
+        ></app-dialog-formulaire-test-plan>
+      </button>
+      <button mat-icon-button aria-label="Supprimer">
+        <mat-icon (click)="importTestPlan()">upload</mat-icon>
+      </button>
+    </div>
+  </mat-card-header>
+
+  <mat-card-content class="card-content">
+    <div class="list" cdkDropList (cdkDropListDropped)="drop($event)">
+      @for (item of testPlans(); track $index) {
+        <div cdkDrag>
+          <app-test-plan-card
+            [testPlanCard]="item"
+            (delete)="deleteTestPlan($index)"
+          ></app-test-plan-card>
+        </div>
+      } @empty {
+        <p class="empty-message">
+          Aucun plan de test disponible. Ajoutez-en un nouveau ou importez des plans existants.
+        </p>
+      }
+    </div>
+  </mat-card-content>
+</mat-card>

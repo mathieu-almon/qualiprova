@@ -1,0 +1,23 @@
+<mat-accordion>
+  @for (scenario of this.receivedData()?.scenarios; track $index) {
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      {{ scenario.name }} + {{ scenario.description }}
+    </mat-expansion-panel-header>
+
+    <mat-accordion>
+      @for (testCase of scenario.testCases; track $index) {
+      <mat-expansion-panel>
+        <mat-expansion-panel-header> {{ testCase.name }} </mat-expansion-panel-header>
+
+        <mat-list>
+          @for (testStep of testCase.testSteps; track $index) {
+          <mat-list-item>{{ testStep.name }} </mat-list-item>
+          }
+        </mat-list>
+      </mat-expansion-panel>
+      }
+    </mat-accordion>
+  </mat-expansion-panel>
+  }
+</mat-accordion>

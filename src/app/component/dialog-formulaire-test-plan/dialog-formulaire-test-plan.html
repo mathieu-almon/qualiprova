@@ -1,0 +1,36 @@
+<mat-icon (click)="openDialog()">add</mat-icon>
+
+<ng-template #dialogTemplate>
+  <h2 mat-dialog-title>Ajouter un Plan de Test</h2>
+  <form [formGroup]="testPlanForm" (ngSubmit)="submit()">
+    <mat-dialog-content>
+      <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>Nom du Plan de Test</mat-label>
+        <input matInput formControlName="name" />
+        <mat-error *ngIf="testPlanForm.get('name')?.hasError('required')">
+          Le nom est requis
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>Catégorie</mat-label>
+        <input matInput formControlName="cartegorie" />
+        <mat-error *ngIf="testPlanForm.get('cartegorie')?.hasError('required')">
+          La catégorie est requise
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" rows="4"></textarea>
+        <mat-error *ngIf="testPlanForm.get('description')?.hasError('required')">
+          La description est requise
+        </mat-error>
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button (click)="closeDialog()">Annuler</button>
+      <button mat-button type="submit" color="primary">Ajouter</button>
+    </mat-dialog-actions>
+  </form>
+</ng-template>
