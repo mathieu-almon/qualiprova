@@ -1,25 +1,20 @@
 // test-plan-card.component.ts
 import { Component, EventEmitter, Input, Output, TemplateRef, ViewChild } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TestPlanCard } from '../models/test-plan-card';
+import { MatCardModule } from '@angular/material/card';
+
+
 
 @Component({
   selector: 'app-test-plan-card',
   standalone: true,
   imports: [
     CommonModule,
-    MatButtonModule,
-    MatCardModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
     FormsModule,
+    MatCardModule,
     ReactiveFormsModule
   ],
   templateUrl: './test-plan-card.component.html',
